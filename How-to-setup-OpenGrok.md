@@ -113,7 +113,15 @@ For the indexing step, the directories that store the output data need to be cre
 
 The initial indexing can take a lot of time - for large code bases (meaning both amount of source code and history) it can take many hours. Subsequent indexing will be much faster as it is incremental.
 
-The indexer can be run either using `opengrok.jar` directly:
+To run the indexer you will need the `opengrok.jar` file that is found in the release `tar.gz` file plus all the libraries found therein. For example, unpack (assumes GNU tar) the release tarball as follows:
+
+```bash
+mkdir -p /opengrok/dist &&
+    tar -C /opengrok/dist --strip-components=1 -xfz opengrok-X.Y.Z.tar.gz
+```
+
+and then the indexer can be run either using `opengrok.jar` directly:
+
 ```
 java -Djava.util.logging.config.file=/var/opengrok/logging.properties \
     -jar /opengrok/dist/lib/opengrok.jar \
@@ -129,7 +137,8 @@ opengrok-indexer -J=-Djava.util.logging.config.file=/var/opengrok/logging.proper
     -s /var/opengrok/src -d /var/opengrok/data -H -P -S -G \
     -W /var/opengrok/etc/configuration.xml -U http://localhost:8080/source
 ```
-Notice how the indexer arguments in both commands are the same. The `opengrok-indexer` will merely find the Java executable and run it.
+
+Notice how the indexer arguments in both commands are the same. The `opengrok-indexer` script will merely find the Java executable and run it.
 
 At the end of the indexing the indexer automatically attempts to upload newly generated configuration to the web application. Until this is done, the web application will display the old state. The indexer needs to know where to upload the configuration to - this is what the `-U` option is there for. The URI supplied by this option needs to match the location where the web application was deployed to, e.g. for War file called `source.war` the URI will be `http://localhost:PORT_NUMBER/source`.
 
