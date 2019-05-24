@@ -190,6 +190,12 @@ These can be set in https://github.com/OpenGrok/OpenGrok/wiki/Read-only-configur
 Tunable | Type | Since version | Meaning
 --------|------|---------------|--------
 `navigateWindowEnabled` | boolean | 1.1 | display navigate window automatically when browsing xrefs, can be overridden on project level (see https://github.com/oracle/opengrok/wiki/Per-project-configuration)
+`userPage` | String | XXX | URL used to display links to user info in the Author column in the History view, e.g. `http://www.myserver.org/viewProfile.jspa?username="` . Can be also controlled with indexer `--userPage` option.
+`userPageSuffix` | String | XXX | Suffix for the `userPage` URL. Can be also controlled with indexer `--userPageSuffix` option.
+`bugPage` | String | XXX | URL used to display links to bugs detected with `bugPattern` in the Comments column in History view.
+`bugPattern` | String | XXX | regular expression pattern to detect bug number that will be appended to `bugPage`. 
+`reviewPage` | String | XXX | URL used to display link to architecture review cases in the Comments column in History view.
+`reviewPattern` | String | XXX | regular expression pattern to extract architecture review case identification which will be appended to the URL in `reviewPage`.
 
 # Optional setup of security manager for Tomcat
 
