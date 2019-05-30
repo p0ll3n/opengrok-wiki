@@ -4,6 +4,8 @@ If you wanted to make a change to OpenGrok code base (small fix, new feature, [a
 
 Firstly, create Github account (of course !).
 
+To understand the source code, you can peruse generated [Javadocs](https://oracle.github.io/opengrok/javadoc/).. or just index OpenGrok source code with OpenGrok and explore ! :smile: 
+
 OpenGrok can be built and tested on any system with Java. You will need:
 
 1. At least JDK8
