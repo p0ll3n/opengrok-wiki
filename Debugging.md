@@ -1,3 +1,14 @@
+## Debugging via logging
+
+### Web application
+
+To make the web application to emit more log messages, increase the log level in appropriate configuration file.
+E.g. if running with Tomcat that stores the configuration under `/var/tomcat8/conf`, append this line:
+```
+org.opengrok.level = ALL
+```
+to the `/var/tomcat8/conf/logging.properties` file and make sure Tomcat is actually using this file - in Tomcat process' arguments, check for `-Djava.util.logging.config.file=/var/tomcat8/conf/logging.properties`.
+
 ## Attaching a debugger
 
 ### Indexer
