@@ -117,7 +117,7 @@ To run the indexer you will need the `opengrok.jar` file that is found in the re
 
 ```bash
 mkdir -p /opengrok/dist &&
-    tar -C /opengrok/dist --strip-components=1 -xfz opengrok-X.Y.Z.tar.gz
+    tar -C /opengrok/dist --strip-components=1 -xzf opengrok-X.Y.Z.tar.gz
 ```
 
 and then the indexer can be run either using `opengrok.jar` directly:
