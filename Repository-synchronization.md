@@ -30,7 +30,7 @@ commands:
     tags: ['%PROJECT%']
     text: resync + reindex in progress
 - command: [sudo, -u, wsmirror, /opengrok/dist/bin/opengrok-mirror, -c, /opengrok/etc/mirror-config.yml, -U, 'http://localhost:8080/source']
-- command: [sudo, -u, webservd, /opengrok/dist/bin/opengrok-reindex-project, -D, -J=-d64,
+- command: [sudo, -u, webservd, /opengrok/dist/bin/opengrok-reindex-project, -J=-d64,
     '-J=-XX:-UseGCOverheadLimit', -J=-Xmx16g, -J=-server, --jar, /opengrok/dist/lib/opengrok.jar,
     -t, /opengrok/etc/logging.properties.template, -p, '%PROJ%', -d, /opengrok/log/%PROJECT%,
     -P, '%PROJECT%', -U, 'http://localhost:8080/source', --, --renamedHistory, 'on', -r, dirbased, -G, -m, '256', -c,
