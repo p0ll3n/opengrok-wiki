@@ -98,6 +98,10 @@ This is where the web application will read the configuration from. The default 
 
 If you happen to be using the Python tools distributed with OpenGrok, you can use the `opengrok-deploy` script to perform the copying of the War file while optionally changing the `CONFIGURATION` value if the configuration file is stored in non-default location.
 
+Note that the web application needs to be able to access the files under both data and source root, so make sure file level permissions are set appropriately (this is even more true when running under SELinux or such).
+
+Another thing to keep in mind is that the web application needs to be able to run source code management commands (such as `git`) in order to display history related views (e.g. making diffs of changes, displaying annotations etc.), basically in the same way as the indexer when it generates history cache. Therefore, permissions and/or environment variables need to be set for the application server.
+
 See https://github.com/oracle/opengrok/wiki/Webapp-configuration for more configuration options of the web application.
 
 Also see https://github.com/oracle/opengrok/wiki/Security
