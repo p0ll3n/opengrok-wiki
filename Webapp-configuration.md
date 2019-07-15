@@ -242,3 +242,11 @@ permission java.util.PropertyPermission "disableLuceneLocks", "read";
 permission java.util.PropertyPermission "catalina.home", "read";  
 permission java.util.PropertyPermission "java.io.tmpdir", "read";};
 ```
+
+# Optional setup of write permission for Tomcat under systemd
+
+On some Linux distributions, you may need to give write permission to data root folder in the tomcat systemd unit.
+Add the following line in /lib/systemd/system/tomcat9.service (under [Service] section)
+```
+ReadWritePaths=/var/opengrok/data/
+```
